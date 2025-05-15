@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git scm
+                git "https://github.com/Thushardm/1BI22CS174-MavenSelenium.git"
             }
         }
 
