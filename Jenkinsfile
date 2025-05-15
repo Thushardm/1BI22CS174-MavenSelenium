@@ -9,8 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
-                // git branch : 'master' , url : "https/github.com/Thushardm/1BI22CS174-MavenSelenium"
+                git branch : 'master' , url : "https/github.com/Thushardm/1BI22CS174-MavenSelenium"
             }
         }
 
@@ -26,9 +25,9 @@ pipeline {
             }
         }
 
-        stage('Archive Artifacts') {
+        stage('Run') {
             steps {
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                sh 'mvn exec:java -Dexec.mainClass=com.example.App'
             }
         }
     }
